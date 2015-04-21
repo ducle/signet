@@ -80,7 +80,7 @@ module Signet #:nodoc:
       end
       case content_type
       when /^application\/json.*/
-        return MultiJson.load(body)
+        return JSON.parse(body)
       when /^application\/x-www-form-urlencoded.*/
         return Hash[Addressable::URI.form_unencode(body)]
       else
